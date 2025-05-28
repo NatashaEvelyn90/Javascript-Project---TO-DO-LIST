@@ -1,39 +1,43 @@
 
-//! To add a new item
+const taskInput = document.getElementById("itemsNeeded");
+const taskList = document.getElementById("taskList");
+const addBtn = document.getElementById("addTasks");
+const removeBtn = document.getElementById("resetTasks");
+const restartBtn = document.getElementById("restart");
 
-let parentList = document.getElementById("taskList"); //? This is letting us know that this is the form field. We want to add new 'inputs' in this field
-let addTasks = document.querySelector("#addTasks");
-addTasks.addEventListener("click",newLine);
+addBtn.addEventListener("click", () => {
+    const taskText = taskInput.value.trim();
+    if (taskText === "") return;
 
-function newLine() {
-    let add = document.createElement("input") //? We are creating a new input (also known as the parent Element)
-    let addTextList = document.createTextNode(""); //? This is our input field. We are going to make it an array because we are going to have multiple items
-    add.appendChild(addTextList);
-    document.getElementById("taskList").appendChild(add);
-    // addTextList.innerText = ""; //? This is where we will add our text
-     
-    // for ( i = 0; i < itemsNeeded.length; i++) {
-    //     itemsNeeded[i] = addTextList[i];
-    // }
+    // Create task item
+    const li = document.createElement("li");
+    li.className = "taskItem";
 
-}
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
 
+    const span = document.createElement("span");
+    span.textContent = taskText;
 
-//!To remove an item from the tasklist
-const clear = document.getElementById("resetTasks")
-clear.addEventListener("click", reset);
-function reset() {
-   const parentList = document.getElementById("taskList");
-   if (parentList.hasChildNodes()) {
-    parentList.removeChild(parentList.lastChild);
-   }
-};
+    checkbox.addEventListener("change", () => {
+        span.classList.toggle("completed", checkbox.checked);
+    });
 
-//! Refreshes page to start over
+    li.appendChild(checkbox);
+    li.appendChild(span);
+    taskList.appendChild(li);
 
-const restart = document.getElementById("restart");
-restart.addEventListener("click", refresh);
+    taskInput.value = ""; // Clear input
+});
 
-function refresh() {
+// Remove last task
+removeBtn.addEventListener("click", () => {
+    if (taskList.lastChild) {
+        taskList.removeChild(taskList.lastChild);
+    }
+});
+
+// Reload page
+restartBtn.addEventListener("click", () => {
     window.location.reload();
-}
+});

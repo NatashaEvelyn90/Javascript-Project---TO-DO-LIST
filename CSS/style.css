@@ -1,9 +1,76 @@
-input {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 10px;
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 1rem;
+    margin: 0;
+    border: 5px solid black;
+}
+
+.mainTop {
+    text-align: center;
+}
+
+.formStyle {
+    background-color: rgba(125, 38, 128, 0.263);
+    max-width: 600px;
+    margin: 1rem auto;
+    border: 2px solid rgba(97, 26, 100, 0.384);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.inputItemsNeeded {
+    padding: 0.5rem;
+    width: 200px;
+    margin-bottom: 1rem;
+}
+
+.addTasks, .remove, .restart {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.addTasks {
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    border: none;
 }
 
 .remove {
-    margin-top: 10px;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    border: none;
+}
+
+.restart {
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    border: none;
+}
+
+ul.taskList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.taskItem {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.taskItem input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.taskItem span.completed {
+    text-decoration: line-through;
+    color: gray;
 }

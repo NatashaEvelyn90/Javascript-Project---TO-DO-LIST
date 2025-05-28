@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="./CSS/bootstrap.min.css"> -->
     <link rel="stylesheet" href="./CSS/style.css">
-    <title>TASKS</title>
+    <!-- <link rel="stylesheet" href="./CSS/bootstrap.min.css"> -->
+    <title>To-Do List</title>
 </head>
 <body>
-    <header>
-        <h1>Don't forget to:</h1>
-    </header>
-    <main>
-        <form id="taskList">
-            <input type="text" id="itemsNeeded" class="inputItemsNeeded">
-        </form>
+    <header class="mainTop">
+        <h1>TO DO LIST:</h1>
+        <input type="text" id="itemsNeeded" class="inputItemsNeeded" placeholder="Enter a task">
         <button id="addTasks" class="addTasks">Add</button>
-        <br>
         <button id="resetTasks" class="remove">Remove</button>
+    </header>
+    <main class="text-center">
+        <div class="formStyle">
+            <ul id="taskList" class="taskList"></ul>
+        </div>
         <button id="restart" class="restart">Restart</button>
     </main>
     <script src="./JS/app.js"></script>
